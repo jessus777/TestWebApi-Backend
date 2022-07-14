@@ -1,14 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Utils;
-using Application.Wrappers;
-using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Queries.GetAllByOrderStatus
+﻿namespace Application.Features.Order.Queries.GetAllByOrderStatus
 {
     public class GetAllOrdersByStatusQuery : IRequest<Response<IEnumerable<GetAllOrdersByStatusViewModel>>>
     {

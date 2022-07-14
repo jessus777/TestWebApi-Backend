@@ -1,8 +1,4 @@
-﻿using Application.Features.Product.Queries.GetAllProducts;
-using Application.Features.Product.Queries.GetAllProductsExistens;
-using Microsoft.AspNetCore.Mvc;
-
-namespace WebAppiTest.Controllers
+﻿namespace WebAppiTest.Controllers
 {
     public class ProductController : BaseApiController
     {

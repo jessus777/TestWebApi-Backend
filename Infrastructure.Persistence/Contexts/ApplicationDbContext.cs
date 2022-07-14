@@ -1,12 +1,8 @@
-﻿using Domain.Entities;
-using Domain.Enums;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure.Persistence.Contexts
+﻿namespace Infrastructure.Persistence.Contexts
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
@@ -35,16 +31,16 @@ namespace Infrastructure.Persistence.Contexts
                     Name = "Coca-Cola 500 ml",
                     DateCreated = DateTime.Now,
                     Quantity = 10,
-                    Price= 12.5000m,
+                    Price = 12.5000m,
                     Iva = 16
-                } ,
+                },
                 new Product
                 {
                     Id = 2,
                     Name = "Sabritones",
                     DateCreated = DateTime.Now,
                     Quantity = 20,
-                    Price= 17.5000m,
+                    Price = 17.5000m,
                     Iva = 16
                 },
                 new Product
@@ -116,18 +112,19 @@ namespace Infrastructure.Persistence.Contexts
             builder.Entity<OrderDetail>().Property(entity => entity.SubTotal).HasPrecision(8, 2);
             builder.Entity<OrderDetail>().Property(entity => entity.Total).HasPrecision(8, 2);
             builder.Entity<OrderDetail>().HasData(
-                
+
                 new OrderDetail
                 {
-                    Id =  1,
+                    Id = 1,
                     OrderId = 1,
                     ProductId = 1,
                     Quantity = 2,
                     SubTotal = 25,
                     Total = 29
-                } ,
+                },
                  new OrderDetail
-                 {  Id = 2,
+                 {
+                     Id = 2,
                      OrderId = 1,
                      ProductId = 2,
                      Quantity = 1,
@@ -136,7 +133,7 @@ namespace Infrastructure.Persistence.Contexts
                  }
                 );
 
-           base.OnModelCreating(builder);
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -1,13 +1,4 @@
-﻿using Application.Features.Order.Commands.AddOrder;
-using Application.Features.Order.Commands.CreateOrder;
-using Application.Features.Order.Commands.CreateOrderAndDetail;
-using Application.Features.Order.Commands.UpdateOrderStatus;
-using Application.Features.Order.Queries.GetAllByOrderStatus;
-using Application.Features.Order.Queries.GetAllOrders;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace WebAppiTest.Controllers
+﻿namespace WebAppiTest.Controllers
 {
     public class OrderController : BaseApiController
     {
@@ -21,7 +12,7 @@ namespace WebAppiTest.Controllers
         [HttpGet("GetAllOrdersByStatus")]
         public async Task<IActionResult> GetAllOrdersByStatus(int statusType)
         {
-            return Ok(await Mediator.Send(new GetAllOrdersByStatusQuery { StatusType = statusType}));
+            return Ok(await Mediator.Send(new GetAllOrdersByStatusQuery { StatusType = statusType }));
         }
 
         [HttpGet("CreateOrder")]

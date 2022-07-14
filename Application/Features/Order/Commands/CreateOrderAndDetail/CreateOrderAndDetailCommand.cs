@@ -1,19 +1,10 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Utils;
-using Application.Wrappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Commands.CreateOrderAndDetail
+﻿namespace Application.Features.Order.Commands.CreateOrderAndDetail
 {
-    public class CreateOrderAndDetailCommand: IRequest<Response<int>>
+    public class CreateOrderAndDetailCommand : IRequest<Response<int>>
     {
         public int Id { get; set; }
-        public decimal SubTotal { get; set; } 
-        public decimal Total { get; set; } 
+        public decimal SubTotal { get; set; }
+        public decimal Total { get; set; }
         public virtual IList<OrderDetail> OrderDetails { get; set; }
 
         public class OrderDetail
@@ -24,7 +15,7 @@ namespace Application.Features.Order.Commands.CreateOrderAndDetail
             public decimal SubTotal { get; set; }
             public decimal Total { get; set; }
         }
-        
+
     }
 
     public class CreateOrderAndDetailCommandHandler : IRequestHandler<CreateOrderAndDetailCommand, Response<int>>
@@ -36,7 +27,7 @@ namespace Application.Features.Order.Commands.CreateOrderAndDetail
         {
             _orderRepositoryAsync = orderRepositoryAsync;
             _orderDetailRepositoryAsync = orderDetailRepositoryAsync;
-            _productRepositoryAsync = productRepositoryAsync;   
+            _productRepositoryAsync = productRepositoryAsync;
         }
 
         public async Task<Response<int>> Handle(CreateOrderAndDetailCommand command, CancellationToken cancellationToken)
@@ -62,7 +53,7 @@ namespace Application.Features.Order.Commands.CreateOrderAndDetail
             }
             else
             {
-                orderExist = new Domain.Entities.Order() { Id = 0};
+                orderExist = new Domain.Entities.Order() { Id = 0 };
             }
 
             if (command.OrderDetails.Count > 0)
@@ -76,7 +67,7 @@ namespace Application.Features.Order.Commands.CreateOrderAndDetail
                         Domain.Entities.OrderDetail orderDetail = (Domain.Entities.OrderDetail)DataMapper.Parse(item, new Domain.Entities.OrderDetail());
                         await _orderDetailRepositoryAsync.AddAsync(orderDetail);
                     }
-                    
+
                 }
             }
             return new Response<int>(orderExist.Id) { Message = "Se creo correctamente", Succeeded = true };

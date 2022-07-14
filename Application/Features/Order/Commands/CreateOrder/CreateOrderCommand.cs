@@ -1,13 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Wrappers;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Commands.CreateOrder
+﻿namespace Application.Features.Order.Commands.CreateOrder
 {
     public class CreateOrderCommand : IRequest<Response<int>>
     {
@@ -16,7 +7,7 @@ namespace Application.Features.Order.Commands.CreateOrder
 
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Response<int>>
     {
-        readonly IOrderRepositoryAsync _orderRepositoryAsync;   
+        readonly IOrderRepositoryAsync _orderRepositoryAsync;
         public CreateOrderCommandHandler(IOrderRepositoryAsync orderRepositoryAsync)
         {
             _orderRepositoryAsync = orderRepositoryAsync;

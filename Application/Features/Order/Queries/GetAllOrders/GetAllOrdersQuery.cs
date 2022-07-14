@@ -1,13 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Utils;
-using Application.Wrappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Queries.GetAllOrders
+﻿namespace Application.Features.Order.Queries.GetAllOrders
 {
     public class GetAllOrdersQuery : IRequest<Response<IEnumerable<GetAllOrderViewModel>>>
     {
@@ -35,11 +26,11 @@ namespace Application.Features.Order.Queries.GetAllOrders
             {
                 foreach (var item in getOrder.OrderDetails)
                 {
-                    item.Order = null;   
+                    item.Order = null;
                 }
                 orders.Add((GetAllOrderViewModel)DataMapper.Parse(getOrder, new GetAllOrderViewModel()));
             }
-            return new Response<IEnumerable<GetAllOrderViewModel>>(orders); 
+            return new Response<IEnumerable<GetAllOrderViewModel>>(orders);
         }
     }
 }

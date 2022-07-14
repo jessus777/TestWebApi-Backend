@@ -1,15 +1,6 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Utils;
-using Application.Wrappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Commands.AddOrder
+﻿namespace Application.Features.Order.Commands.AddOrder
 {
-    public  class AddOrderCommand : IRequest<Response<int>>
+    public class AddOrderCommand : IRequest<Response<int>>
     {
         public int OrderNumber { get; set; }
     }
@@ -39,13 +30,13 @@ namespace Application.Features.Order.Commands.AddOrder
             {
                 order.OrderNumber = command.OrderNumber;
                 order = (Domain.Entities.Order)DataMapper.Parse(command, new Domain.Entities.Order());
-                await _orderRepositoryAsync.AddAsync(order); 
+                await _orderRepositoryAsync.AddAsync(order);
             }
             else
             {
                 return new Response<int>(null) { Message = "Ya existe esta Orden", Succeeded = false };
             }
-            
+
             return new Response<int>(order.Id) { Message = "Order creada correctamente", Succeeded = true };
         }
     }

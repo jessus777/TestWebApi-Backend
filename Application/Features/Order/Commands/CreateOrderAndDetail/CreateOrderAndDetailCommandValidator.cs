@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Commands.CreateOrderAndDetail
+﻿namespace Application.Features.Order.Commands.CreateOrderAndDetail
 {
-    public class CreateOrderAndDetailCommandValidator: AbstractValidator<CreateOrderAndDetailCommand>
+    public class CreateOrderAndDetailCommandValidator : AbstractValidator<CreateOrderAndDetailCommand>
     {
         public CreateOrderAndDetailCommandValidator()
         {

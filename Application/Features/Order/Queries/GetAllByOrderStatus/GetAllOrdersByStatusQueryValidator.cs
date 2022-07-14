@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Queries.GetAllByOrderStatus
+﻿namespace Application.Features.Order.Queries.GetAllByOrderStatus
 {
-    public class GetAllOrdersByStatusQueryValidator  : AbstractValidator<GetAllOrdersByStatusQuery>
+    public class GetAllOrdersByStatusQueryValidator : AbstractValidator<GetAllOrdersByStatusQuery>
     {
         public GetAllOrdersByStatusQueryValidator()
         {

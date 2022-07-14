@@ -1,9 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Domain.Entities;
-using Infrastructure.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure.Persistence.Repositories
+﻿namespace Infrastructure.Persistence.Repositories
 {
     public class ProductRepositoryAsync : GenericRepositoryAsync<Product>, IProductRepositoryAsync
     {

@@ -1,13 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Wrappers;
-using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Order.Commands.UpdateOrderStatus
+﻿namespace Application.Features.Order.Commands.UpdateOrderStatus
 {
     public class UpdateOrderStatusCommand : IRequest<Response<int>>
     {
@@ -24,7 +15,7 @@ namespace Application.Features.Order.Commands.UpdateOrderStatus
         {
             _orderRepositoryAsync = orderRepositoryAsync;
             _productRepositoryAsync = productRepositoryAsync;
-            _orderDetailRepositoryAsync = orderDetailRepositoryAsync;   
+            _orderDetailRepositoryAsync = orderDetailRepositoryAsync;
         }
         public async Task<Response<int>> Handle(UpdateOrderStatusCommand command, CancellationToken cancellationToken)
         {
@@ -54,7 +45,7 @@ namespace Application.Features.Order.Commands.UpdateOrderStatus
             if (statusIsDelivered)
             {
                 var products = await _productRepositoryAsync.GetAllAsync();
-                var listErrors = new  List<string>();
+                var listErrors = new List<string>();
                 foreach (var product in products)
                 {
 
@@ -78,14 +69,14 @@ namespace Application.Features.Order.Commands.UpdateOrderStatus
                             await _productRepositoryAsync.UpdateAsync(product);
                         }
 
-                        
+
                         order.OrderStatusType = (OrderStatusType)command.StatusType;
                         order.OrderStatusTypeName = Enum.GetName(order.OrderStatusType);
                         await _orderRepositoryAsync.UpdateAsync(order);
                     }
                 }
 
-                return new Response<int>(order.Id) { Succeeded = true, Message = "Se actualizó correctamente el status de la orden", Errors= listErrors.ToList()};
+                return new Response<int>(order.Id) { Succeeded = true, Message = "Se actualizó correctamente el status de la orden", Errors = listErrors.ToList() };
 
             }
             else
@@ -97,7 +88,7 @@ namespace Application.Features.Order.Commands.UpdateOrderStatus
             return new Response<int>(order.Id) { Succeeded = true, Message = "Se actualizó correctamente el status de la orden" };
         }
 
-       
+
     }
-   
+
 }

@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-
-namespace WebAppiTest.Controllers
+﻿namespace WebAppiTest.Controllers
 {
     [ApiController]
     [Route("api/")]

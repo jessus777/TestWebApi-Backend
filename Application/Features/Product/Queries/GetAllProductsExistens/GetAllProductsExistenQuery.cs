@@ -1,13 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Application.Utils;
-using Application.Wrappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Product.Queries.GetAllProductsExistens
+﻿namespace Application.Features.Product.Queries.GetAllProductsExistens
 {
     public class GetAllProductsExistenQuery : IRequest<Response<IEnumerable<GetAllProductsExistenViewModel>>>
     {

@@ -1,9 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Domain.Entities;
-using Infrastructure.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure.Persistence.Repositories
+﻿namespace Infrastructure.Persistence.Repositories
 {
     public class CustomerRepositoryAsync : GenericRepositoryAsync<Customer>, ICustomerRepositoryAsync
     {
@@ -11,7 +6,7 @@ namespace Infrastructure.Persistence.Repositories
 
         public CustomerRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
         {
-            _customer = dbContext.Set<Customer>(); 
+            _customer = dbContext.Set<Customer>();
         }
 
         public async ValueTask<List<Customer>> GetAllCustomerAsync()

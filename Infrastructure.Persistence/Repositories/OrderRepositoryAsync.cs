@@ -1,14 +1,4 @@
-﻿using Application.Interfaces.Repositories;
-using Domain.Entities;
-using Infrastructure.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure.Persistence.Repositories
+﻿namespace Infrastructure.Persistence.Repositories
 {
     public class OrderRepositoryAsync : GenericRepositoryAsync<Order>, IOrderRepositoryAsync
     {
@@ -37,7 +27,7 @@ namespace Infrastructure.Persistence.Repositories
         public async ValueTask<int> GetLastOrderNumber()
         {
             IQueryable<Order> query = _order.Where(item => item.OrderStatusType == Domain.Enums.OrderStatusType.Pending || item.OrderStatusType != Domain.Enums.OrderStatusType.Pending);
-            return await query.OrderByDescending(item => item.Id).Select(o=>o.OrderNumber).FirstOrDefaultAsync();
+            return await query.OrderByDescending(item => item.Id).Select(o => o.OrderNumber).FirstOrDefaultAsync();
         }
 
         public async ValueTask<bool> IsUniqueOrderAsync(int orderNumber)
