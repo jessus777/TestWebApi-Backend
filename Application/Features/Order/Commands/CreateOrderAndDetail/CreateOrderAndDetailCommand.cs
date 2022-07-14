@@ -56,7 +56,7 @@ namespace Application.Features.Order.Commands.CreateOrderAndDetail
             if (orderExist != default)
             {
                 orderExist.Total = command.Total;
-                orderExist.SubTotal = command.Total;
+                orderExist.SubTotal = command.SubTotal;
 
                 await _orderRepositoryAsync.UpdateAsync(orderExist);
             }

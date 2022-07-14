@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4010E9BB-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{149DD228-7DF5-4B5F-9D41-E02BC769F31D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{B641AB6C-480E-4EBB-91A4-3CAC0D5CA92D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{B641AB6C-480E-4EBB-91A4-3CAC0D5CA92D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{346112EE-7E7E-4AA8-810C-6A336D048565}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{346112EE-7E7E-4AA8-810C-6A336D048565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Persistence", "Infrastructure.Persistence\Infrastructure.Persistence.csproj", "{D15CB0D7-106F-467D-BF5C-E8AD053328FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Persistence", "Infrastructure.Persistence\Infrastructure.Persistence.csproj", "{D15CB0D7-106F-467D-BF5C-E8AD053328FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{19629BDD-7127-433B-87A7-3BAC61B53332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{19629BDD-7127-433B-87A7-3BAC61B53332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppiTest", "WebAppiTest\WebAppiTest.csproj", "{F83D1FBA-D830-49BE-BA86-0E4ECE244847}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppiTest", "WebAppiTest\WebAppiTest.csproj", "{F83D1FBA-D830-49BE-BA86-0E4ECE244847}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
