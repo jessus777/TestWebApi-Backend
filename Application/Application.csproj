@@ -10,8 +10,6 @@
     <Folder Include="Features\Customer\Commands\EditCustomer\" />
     <Folder Include="Features\Customer\Commands\DeleteCustomer\" />
     <Folder Include="Features\Customer\Queries\" />
-    <Folder Include="Features\OrderDetail\Queries\" />
-    <Folder Include="Features\Order\Commands\DeleteOrderById\" />
     <Folder Include="Features\Product\Commands\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
