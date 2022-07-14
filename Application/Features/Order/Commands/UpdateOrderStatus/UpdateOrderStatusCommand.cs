@@ -29,6 +29,15 @@ namespace Application.Features.Order.Commands.UpdateOrderStatus
         public async Task<Response<int>> Handle(UpdateOrderStatusCommand command, CancellationToken cancellationToken)
         {
 
+            var validatorOrderUdate = new UpdateOrderStatusValidator();
+            var resultValidator = await validatorOrderUdate.ValidateAsync(command, cancellationToken);
+            if (!resultValidator.IsValid)
+            {
+                List<string> errors = new();
+                errors.AddRange(resultValidator.Errors.Select(error => error.ErrorMessage));
+                return new Response<int>(null) { Message = "", Succeeded = false, Errors = errors };
+            }
+
             var order = await _orderRepositoryAsync.GetByIdAsync(command.Id);
             if (order == null)
             {

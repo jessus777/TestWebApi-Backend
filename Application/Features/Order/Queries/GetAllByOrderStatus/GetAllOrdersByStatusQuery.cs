@@ -25,6 +25,16 @@ namespace Application.Features.Order.Queries.GetAllByOrderStatus
         }
         public async Task<Response<IEnumerable<GetAllOrdersByStatusViewModel>>> Handle(GetAllOrdersByStatusQuery query, CancellationToken cancellationToken)
         {
+
+            var validatorOrderUdate = new GetAllOrdersByStatusQueryValidator();
+            var resultValidator = await validatorOrderUdate.ValidateAsync(query, cancellationToken);
+            if (!resultValidator.IsValid)
+            {
+                List<string> errors = new();
+                errors.AddRange(resultValidator.Errors.Select(error => error.ErrorMessage));
+                return new Response<IEnumerable<GetAllOrdersByStatusViewModel>>(null) { Succeeded = false, Message = "", Errors = errors };
+            }
+
             var getAllOrdersByStatus = await _orderRepositoryAsync.GetAllOrderByStatusAsync(query.StatusType);
             var orders = new List<GetAllOrdersByStatusViewModel>();
             if (getAllOrdersByStatus.Count <= 0)
